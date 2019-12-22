@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   def show
-    render json: user_cart
+    render json: user_cart, serializer: CartSerializer
   end
 
   def update

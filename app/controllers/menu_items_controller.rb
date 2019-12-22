@@ -1,7 +1,12 @@
 class MenuItemsController < ApplicationController
 
   def create
-    MenuItem.create(menu_item_params)
+    menu_item = MenuItem.new(menu_item_params)
+    if menu_item.save
+      render json: "Menu item created succeefully."
+    else
+      render json: "#{menu_item.errors.messages} in creation of menu item", status: :unprocessable_entity
+    end
   end
 
   def index
@@ -9,7 +14,11 @@ class MenuItemsController < ApplicationController
   end
 
   def destroy
-    render json: MenuItem.find_by(id: params[:id]).destroy
+    if menu_item = MenuItem.find_by(id: params[:id])
+      render json: menu_item.destroy
+    else
+      render json: "Error deleting menu item", status: :unprocessable_entity
+    end
   end
 
   private

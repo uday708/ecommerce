@@ -25,7 +25,8 @@ class CartItemProcessor
 
     def price_for_sales
       # calculate price for requested units using offers
-      return 0 unless discount_quantity
+      return 0 if discount_quantity.zero?
+      return 0 unless discount_quantity.present?
       (quantity / discount_quantity) * sale_price
     end
 

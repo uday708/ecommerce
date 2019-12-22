@@ -1,8 +1,6 @@
 class Checkout
   attr_accessor :cart
 
-  delegate :total_price, :total_saving, to: :cart
-
   def initialize(cart)
     @cart = cart
   end

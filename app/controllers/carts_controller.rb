@@ -4,7 +4,11 @@ class CartsController < ApplicationController
   end
 
   def update
-    render json: checkout.update_cart(items_parameters[:cart_items])
+    if checkout.update_cart(items_parameters[:cart_items])
+      render json: "Cart Updated Successfully", status: :ok
+    else
+      render json: "Error in Update Cart", status: :unprocessable_entity
+    end
   end
 
   def destroy

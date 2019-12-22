@@ -8,6 +8,10 @@ class MenuItemsController < ApplicationController
     render json: MenuItem.all
   end
 
+  def destroy
+    render json: MenuItem.find_by(id: params[:id]).destroy
+  end
+
   private
 
   def user_cart

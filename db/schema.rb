@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_12_14_114950) do
   create_table "cart_items", force: :cascade do |t|
     t.integer "cart_id", null: false
     t.integer "menu_item_id", null: false
+    t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cart_id"], name: "index_cart_items_on_cart_id"

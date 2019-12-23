@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :validate_authenticity_token
 
   def validate_authenticity_token
-    if params[:token].present?
+    if params.permit(:token).to_h[:token].present?
       payload = JWT.decode(params[:token], User::SECRET_KEY)[0]
       @user = User.find payload['id']
     else

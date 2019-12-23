@@ -1,24 +1,28 @@
-# README
+# Ecommerce Cart
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ System/cart that confirms to following discount/promotion rule interface.
 
-Things you may want to cover:
+ Run server :-
 
-* Ruby version
+```sh-session
+ rails s -p 3001
+ ```
 
-* System dependencies
+* Ruby version - '2.6.3'
 
-* Configuration
+* System dependencies - install rvm, rvm use 2.6.3
 
-* Database creation
+* Database initialization - sqlite3, Go through the schema for database structure.
 
-* Database initialization
+* How to run the test suite -> e.g. {ruby -Itest test/controller/carts_controller_test.rb}
 
-* How to run the test suite
+##About Product:-
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Api for 
+	- Create user , using JWT authentication.
+	- Create menu_items(i.e A, B, C).
+	- Create cart with cart_items and user can has only one cart.
+	- List of all cart items.
+	- Can delete Menu Item.
+	- Can delete Cart Item from cart.
 
-* Deployment instructions
-
-* ...
